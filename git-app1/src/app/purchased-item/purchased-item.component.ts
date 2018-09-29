@@ -1,4 +1,4 @@
-import{Component, OnInit}from '@angular/core';
+import{Component, OnInit, Input}from '@angular/core';
 
 @Component({
   selector: 'app-purchased-item',
@@ -7,20 +7,12 @@ import{Component, OnInit}from '@angular/core';
 })
 export class PurchasedItemComponent implements OnInit {
 
-  private name : string = 'Beer';
-  private price : string = '3.5';
-  private currency : string = 'RON';
-  private date : string = '28.09.2018';
+  @Input() name : string = 'Beer';
+  @Input() price : string = '3.5';
+  @Input() currency : string = 'RON';
+  @Input() date : string = '28.09.2018';
 
   constructor() {}
-
-  //  // Note 1
-  //  // invalid because "string" is not a provider
-  //  constructor(item: string, name: string, price: string) {
-  //    this.item = item;
-  //    this.name = name;
-  //    this.price = price;
-  //  }
 
   ngOnInit() {
   }
