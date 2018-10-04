@@ -16,5 +16,4 @@ export class PurchasedItemComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

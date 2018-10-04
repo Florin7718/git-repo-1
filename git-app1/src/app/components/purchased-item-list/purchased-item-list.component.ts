@@ -18,7 +18,19 @@ export class PurchasedItemListComponent implements OnInit {
   }
 
   getItemsFromDB(){
-    this.purchasedItems = this.itemService.getItemsFromDB();
+    this.itemService.getItemsFromDB().subscribe(
+      (res) => {
+        this.purchasedItems = res;
+        console.log("success view-purchases");
+      },
+      err => {
+        console.log(err);
+        console.log("error view-purchases");
+      },
+      () => {
+        console.log("complete view-purchases");
+      }
+    );
   }
 
   clearItems(){
