@@ -1,3 +1,17 @@
+div.paragraph{
+margin-top: 35px;
+margin-bottom: 35px;
+}
+
+table {
+	width: 100%;
+  }
+
+button{
+	margin-bottom: 5px;
+
+}
+
 body {
 	font: bold 11px/1.5em Verdana;
 	}
@@ -18,7 +32,7 @@ hr {
 	}
 
 nav{
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }    
 
 nav a{
@@ -35,6 +49,7 @@ nav a{
 	list-style:none;
 
 	text-decoration:none;
+	
 	}
 
 /* Commented Backslash Hack hides rule from IE5-Mac \*/
