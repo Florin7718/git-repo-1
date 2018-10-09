@@ -14,6 +14,11 @@ export class AddPurchasePageComponent implements OnInit {
   @Input() currency: string;
   @Input() date: string;
 
+  private isSuccess: boolean = false;
+  private isPurchaseComplete: boolean = false;
+  private successMessage: string = "Purchase added.";
+  private errorMessage: string = "Error adding purchase.";
+
   constructor(private itemsService: PurchasedItemsServiceService) { }
 
   ngOnInit() {
@@ -30,11 +35,23 @@ export class AddPurchasePageComponent implements OnInit {
 
     this.itemsService.addPurchase(comp)
       .subscribe(
-        () => { console.log("success purchase"); },
-        () => { console.log("error purchase"); },
+        () => {
+          console.log("success purchase");
+          this.isPurchaseComplete = true;
+          this.isSuccess = true;
+        },
+        () => {
+          console.log("error purchase");
+          this.isPurchaseComplete = true;
+          this.isSuccess = false;
+        },
         () => { console.log("complete purchase"); }
       );
 
+  }
+
+  addNewPurchase(): void {
+    this.isPurchaseComplete = false;
   }
 
 }
