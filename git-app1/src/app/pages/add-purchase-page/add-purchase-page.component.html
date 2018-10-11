@@ -13,3 +13,13 @@
 <button *ngIf="!isPurchaseComplete" (click)="addPurchase()">Add purchase</button>
 
 <button *ngIf="isPurchaseComplete" (click)="addNewPurchase()">Add new purchase</button>
+
+<div class="paragraph">
+        <textarea readonly="true">{{textAreaSampleInput}}</textarea>
+</div>
+
+<div *ngIf="!isPurchaseComplete" class="paragraph">
+    <textarea [(ngModel)]="importFromTextArea"></textarea>
+</div>
+
+<button *ngIf="!isPurchaseComplete" (click)="doImportFromTextArea()">Import and add purchases</button>

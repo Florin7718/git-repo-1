@@ -13,6 +13,9 @@ export class AddPurchasePageComponent implements OnInit {
   @Input() price: string;
   @Input() currency: string;
   @Input() date: string;
+  @Input() importFromTextArea: string = "";
+
+private textAreaSampleInput = "2-Oct\tbere\t35\n3-Oct\tauchan\t6.25\n3-Oct\tniste fornetti\t4";
 
   private isSuccess: boolean = false;
   private isPurchaseComplete: boolean = false;
@@ -52,6 +55,20 @@ export class AddPurchasePageComponent implements OnInit {
 
   addNewPurchase(): void {
     this.isPurchaseComplete = false;
+  }
+
+  doImportFromTextArea(): void {
+    this.importFromTextArea.split("\n").forEach(line => {
+      var itemParts = line.split("\t");
+
+      //when / what / how much
+      this.name = itemParts[1];
+      this.price = itemParts[2];
+      this.currency = 'RON - default';
+      this.date = itemParts[0];
+
+      this.addPurchase();
+    });
   }
 
 }

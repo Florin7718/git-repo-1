@@ -29,4 +29,8 @@ export class PurchasedItemTableComponent implements OnInit {
           this.datasource = [];
         });
   }
+
+  getTotalPrice() {
+    return this.datasource.map(item => item.price).reduce(((s1, s2) => Number(s1) + Number(s2)), 0);
+  }
 }
