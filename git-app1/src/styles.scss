@@ -1,0 +1,125 @@
+/*
+Variables section.
+*/
+
+$global-page-color: lightyellow;
+$menu-color: green;
+$global-text-color: black;
+$body-color: lightyellow;
+
+
+
+
+
+
+/* Using global settings could be a bad idea. */
+
+/*
+* {
+  background-color: $global-page-color;
+  margin: 0px;
+  border: 0px;
+  padding: 0px;  
+}
+*/
+
+
+
+
+
+/* Main menu section. */
+
+.main-menu-div {
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  height: auto;
+  background-color: $menu-color;
+}
+
+.main-body-div {
+	display: block;
+	margin-top: 0.5rem;
+	margin-bottom: 1.5rem;
+	height: auto;
+	background-color: $body-color;
+  }
+
+.centered-at-90-percent {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+button {
+  padding: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.button-undercover{
+  border:none;
+  outline:none;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  background-color: inherit;
+}
+
+.button-menu{
+  font-weight: bold;
+  font-size: 1.25rem;
+  width: 25%;
+}
+
+.button-menu:hover, .button-menu:focus{
+  font-weight: bolder;
+  font-size: 1.75rem;
+  opacity: 0.6;
+  outline: 0;
+}
+
+a, a:visited, a:hover, a:active {
+  text-decoration: none;
+  display: block;
+  color: $global-text-color;
+  background-color: inherit;
+}
+
+
+
+
+
+/* Messages for the user section. */
+
+.top-bottom-margins-35{
+margin-top: 35px;
+margin-bottom: 35px;
+}
+
+.success-message{
+	font-weight:bold;
+	color: green;
+}
+
+.error-message{
+	font-size:16px;
+	font-weight:bold;
+	color: red;
+}
+
+body{ 
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+
+
+
+/* Table displaying data */
+
+table {
+  width: 100%;
+}

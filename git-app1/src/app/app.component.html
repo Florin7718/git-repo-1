@@ -1,7 +1,10 @@
-<nav>
-  <a routerLink="/login">Login</a> |
-  <a routerLink="/view-statistics">View Purchases</a> |
-  <a routerLink="/add-purchase">Log a new purchase</a>
-</nav>
+<div class="main-menu-div centered-at-90-percent">
+  <button class="button-undercover button-menu centered-at-90-percent"><a routerLink="/login">Login</a></button>
+  <button class="button-undercover button-menu centered-at-90-percent"><a routerLink="/view-statistics">View Purchases</a></button>
+  <button class="button-undercover button-menu centered-at-90-percent"><a routerLink="/add-purchase">Log a new purchase</a></button>
+  <button class="button-undercover button-menu centered-at-90-percent"><a routerLink="/logout">Logout</a></button>
+</div>
 
-<router-outlet>
+<div class="main-body-div centered-at-90-percent">
+  <router-outlet></router-outlet>
+</div>

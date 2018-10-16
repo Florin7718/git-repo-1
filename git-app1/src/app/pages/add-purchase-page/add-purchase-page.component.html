@@ -5,20 +5,20 @@
     <div><label>Item date : </label><input name="date" value="{{date}}" [(ngModel)]="date"></div>
 </div>
 
-<div class="paragraph" *ngIf="isPurchaseComplete">
-    <div *ngIf="isSuccess" class="success">{{successMessage}}</div>
-    <div *ngIf="!isSuccess" class="error">{{errorMessage}}</div>
+<div class="top-bottom-margins-35" *ngIf="isPurchaseComplete">
+    <div *ngIf="isSuccess" class="success-message">{{successMessage}}</div>
+    <div *ngIf="!isSuccess" class="error-message">{{errorMessage}}</div>
 </div>
 
 <button *ngIf="!isPurchaseComplete" (click)="addPurchase()">Add purchase</button>
 
 <button *ngIf="isPurchaseComplete" (click)="addNewPurchase()">Add new purchase</button>
 
-<div class="paragraph">
+<div class="top-bottom-margins-35">
         <textarea readonly="true">{{textAreaSampleInput}}</textarea>
 </div>
 
-<div *ngIf="!isPurchaseComplete" class="paragraph">
+<div *ngIf="!isPurchaseComplete" class="top-bottom-margins-35">
     <textarea [(ngModel)]="importFromTextArea"></textarea>
 </div>
 
