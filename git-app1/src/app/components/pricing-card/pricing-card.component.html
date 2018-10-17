@@ -1,0 +1,26 @@
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Recent purchases</h1>
+  <p class="lead">Below you will see a list of all the purchases logged to the in-memory database.</p>
+</div>
+
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+
+    <div *ngFor="let item of purchasedItems" class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">{{item.name}}</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">{{item.price}} <small class="text-muted">/ {{item.currency}}</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>{{item.name}}</li>
+          <li>{{item.price}}</li>
+          <li>{{item.currency}}</li>
+          <li>{{item.date}}</li>
+        </ul>
+        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Clone & edit (TODO)</button>
+      </div>
+    </div>
+  </div>
+
+</div>
