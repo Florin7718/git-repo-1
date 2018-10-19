@@ -1,3 +1,9 @@
-<p>
-  Not yet implemented.
-</p>
+<div>
+  <div><label>Name : </label><input name="name" value="{{name}}" [(ngModel)]="name"></div>
+  <div><label>Login Id : </label><input name="loginId" value="{{loginId}}" [(ngModel)]="loginId"></div>
+  <div><label>Password : </label><input name="password" value="{{password}}" [(ngModel)]="password"></div>
+</div>
+
+<button (click)="login()">Login</button>
+
+<button (click)="register()">Register</button>

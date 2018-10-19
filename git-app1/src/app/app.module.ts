@@ -18,6 +18,7 @@ import { AddPurchasePageComponent } from './pages/add-purchase-page/add-purchase
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PurchasedItemTableComponent } from './components/purchased-item-table/purchased-item-table.component';
 import { PricingCardComponent } from './components/pricing-card/pricing-card.component';
+import { UserComponent } from './components/user/user.component';
 
 const appRoutes: Routes = [
   {
@@ -54,7 +55,8 @@ const appRoutes: Routes = [
     AddPurchasePageComponent,
     PageNotFoundComponent,
     PurchasedItemTableComponent,
-    PricingCardComponent
+    PricingCardComponent,
+    UserComponent
   ],
   imports: [
     MatPaginatorModule,
