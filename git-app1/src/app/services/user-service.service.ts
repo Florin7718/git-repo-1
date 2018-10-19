@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserComponent } from '../components/user/user.component';
-import { Observable } from 'rxjs';
+import { Observable, Subscriber } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserServiceService {
 
-  private loggedInUser: UserComponent;
+  private loggedInUser: UserComponent = null;
 
   constructor(private httpClient: HttpClient) { }
 
+  private subscriber: Subscriber<{}>;
+
   loginUser(user: UserComponent) {
-
-
     const rq = {
       name: user.name,
       loginId: user.loginId,
@@ -22,7 +22,10 @@ export class UserServiceService {
     };
 
     var obs: Observable<UserComponent> = this.httpClient.post<UserComponent>("/api/login", rq);
-    obs.subscribe(succ => { this.loggedInUser = succ; });
+    obs.subscribe(succ => {
+      this.loggedInUser = succ;
+      this.subscriber.next(this.loggedInUser.name);
+    });
     return obs;
   }
 
@@ -39,5 +42,12 @@ export class UserServiceService {
 
   getCurrentUser(): UserComponent {
     return this.loggedInUser;
+  }
+
+  getObservable(): Observable<{}> {
+    const simpleObservable = new Observable((observer) => {
+      this.subscriber = observer;
+    });
+    return simpleObservable;
   }
 }

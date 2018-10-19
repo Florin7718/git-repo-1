@@ -1,9 +1,22 @@
-<div>
-  <div><label>Name : </label><input name="name" value="{{name}}" [(ngModel)]="name"></div>
-  <div><label>Login Id : </label><input name="loginId" value="{{loginId}}" [(ngModel)]="loginId"></div>
-  <div><label>Password : </label><input name="password" value="{{password}}" [(ngModel)]="password"></div>
-</div>
-
-<button (click)="login()">Login</button>
-
-<button (click)="register()">Register</button>
+<body class="text-center">
+  <div class="form-signin">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="userName" class="sr-only">User name</label>
+    <input *ngIf="isRegisterMode" type="userName" id="inputUserName" class="form-control" placeholder="John Smith" name="name"
+      value="{{name}}" [(ngModel)]="name" required>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="email" id="inputEmail" class="form-control" placeholder="Login ID" name="loginId" value="{{loginId}}"
+      [(ngModel)]="loginId" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" value="{{password}}"
+      [(ngModel)]="password" required>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button *ngIf="!isRegisterMode" class="btn btn-lg btn-primary btn-block" (click)="login()">Sign in</button>
+    <button class="btn btn-lg btn-primary btn-block" (click)="register()">Register</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
+  </div>
+</body>

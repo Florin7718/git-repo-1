@@ -13,6 +13,8 @@ export class LoginPageComponent implements OnInit {
   @Input() name: string;
   @Input() password: string;
 
+  private isRegisterMode: boolean = false;
+
   constructor(private userService: UserServiceService) { }
 
   ngOnInit() {
@@ -35,9 +37,15 @@ export class LoginPageComponent implements OnInit {
         },
         () => { console.log("complete login"); }
       );
+
+    this.isRegisterMode = false;
   }
 
   register() {
+    if (!this.isRegisterMode) {
+      this.isRegisterMode = true;
+      return;
+    }
     var comp: UserComponent = new UserComponent();
 
     comp.name = this.name;
@@ -54,6 +62,8 @@ export class LoginPageComponent implements OnInit {
         },
         () => { console.log("complete register"); }
       );
+
+    this.isRegisterMode = false;
   }
 
 }
