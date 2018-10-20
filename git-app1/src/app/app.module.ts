@@ -19,27 +19,51 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { PurchasedItemTableComponent } from './components/purchased-item-table/purchased-item-table.component';
 import { PricingCardComponent } from './components/pricing-card/pricing-card.component';
 import { UserComponent } from './components/user/user.component';
+import { LoggedInMenuGuardGuard } from './services/guards/logged-in-menu-guard.guard';
+import { LogoutPageComponent } from './pages/logout-page/logout-page.component';
+import { NotLoggedInMenuGuard } from './services/guards/not-logged-in-menu.guard';
+import { MustBeLoggedInPageComponent } from './pages/must-be-logged-in-page/must-be-logged-in-page.component';
+import { MustNotBeLoggedInPageComponent } from './pages/must-not-be-logged-in-page/must-not-be-logged-in-page.component';
 
 const appRoutes: Routes = [
   {
     path: 'login',
-    component: LoginPageComponent
+    component: LoginPageComponent,
+    canActivate: [NotLoggedInMenuGuard]
   },
   {
     path: 'view-statistics',
-    component: ViewStatisticsPageComponent
+    component: ViewStatisticsPageComponent,
+    canActivate: [LoggedInMenuGuardGuard]
   },
   {
     path: 'add-purchase',
-    component: AddPurchasePageComponent
+    component: AddPurchasePageComponent,
+    canActivate: [LoggedInMenuGuardGuard]
   },
-  { path: '',
+  {
+    path: 'logout',
+    component: LogoutPageComponent,
+    canActivate: [LoggedInMenuGuardGuard]
+  },
+  {
+    path: 'must-be-logged-in',
+    component: MustBeLoggedInPageComponent,
+    canActivate: [NotLoggedInMenuGuard]
+  },
+  {
+    path: 'must-not-be-logged-in',
+    component: MustNotBeLoggedInPageComponent,
+    canActivate: [LoggedInMenuGuardGuard]
+  },
+  {
+    path: '',
     redirectTo: '/login',
     pathMatch: 'full'
   },
   {
-  path: '**',
-  component: PageNotFoundComponent
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 
@@ -56,7 +80,10 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     PurchasedItemTableComponent,
     PricingCardComponent,
-    UserComponent
+    UserComponent,
+    LogoutPageComponent,
+    MustBeLoggedInPageComponent,
+    MustNotBeLoggedInPageComponent
   ],
   imports: [
     MatPaginatorModule,
@@ -65,13 +92,13 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(
-          appRoutes,
-          { enableTracing: false } // <-- debugging purposes only
-        )
+      appRoutes,
+      { enableTracing: false } // <-- debugging purposes only
+    )
   ],
   providers: [
     PurchasedItemsServiceService
-    ],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

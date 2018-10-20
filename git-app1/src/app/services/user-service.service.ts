@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserComponent } from '../components/user/user.component';
 import { Observable, Subscriber } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class UserServiceService {
 
   private loggedInUser: UserComponent = null;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router : Router) { }
 
   private subscriber: Subscriber<{}>;
 
@@ -25,6 +26,7 @@ export class UserServiceService {
     obs.subscribe(succ => {
       this.loggedInUser = succ;
       this.subscriber.next(this.loggedInUser.name);
+      this.router.navigate(['/view-statistics']);
     });
     return obs;
   }
@@ -49,5 +51,10 @@ export class UserServiceService {
       this.subscriber = observer;
     });
     return simpleObservable;
+  }
+
+  logout() {
+    console.log("User logged out.");
+    this.loggedInUser = null;
   }
 }

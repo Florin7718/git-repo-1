@@ -31,6 +31,7 @@ export class LoginPageComponent implements OnInit {
       .subscribe(
         () => {
           console.log("success login");
+          // routing here is subjected to delay. routing in the producer
         },
         () => {
           console.log("error login");
