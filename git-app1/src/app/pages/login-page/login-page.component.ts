@@ -67,4 +67,8 @@ export class LoginPageComponent implements OnInit {
     this.isRegisterMode = false;
   }
 
+  cancelRegister(){
+    this.isRegisterMode = false;
+  }
+
 }

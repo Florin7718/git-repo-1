@@ -10,6 +10,10 @@ export class AppComponent {
   title = 'git-app1';
 
   private isUserLoggedIn: boolean = false;
+  private isCollapsed: boolean = true;
+  private btnTextCollapsed: string = "[ - ]";
+  private btnTextUncollapsed: string = "[ + ]";
+  private btnText: string = "[ - ]";
 
   constructor(private userService: UserServiceService) { }
 
@@ -18,5 +22,14 @@ export class AppComponent {
     this.userService.getObservable().subscribe(() => {
       this.isUserLoggedIn = (this.userService.getCurrentUser() != null);
     });
+  }
+
+  menuClicked() {
+    this.isCollapsed = !this.isCollapsed;
+    if (this.isCollapsed) {
+      this.btnText = this.btnTextCollapsed;
+    } else {
+      this.btnText = this.btnTextUncollapsed;
+    };
   }
 }

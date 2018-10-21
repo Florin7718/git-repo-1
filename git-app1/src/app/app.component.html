@@ -1,10 +1,17 @@
-<div class="main-menu-div centered-at-90-percent">
-  <button class="button-undercover button-menu centered-at-90-percent"><a routerLink="/login">Login</a></button>
-  <button class="button-undercover button-menu centered-at-90-percent"><a routerLink="/view-statistics">View Purchases</a></button>
-  <button class="button-undercover button-menu centered-at-90-percent"><a routerLink="/add-purchase">Log a new purchase</a></button>
-  <button class="button-undercover button-menu centered-at-90-percent"><a routerLink="/logout">Logout</a></button>
-</div>
+<nav class="main-menu-div centered-at-90-percent top-bottom-margins-35">
+  <button class="button-undercover button-menu" (click)="menuClicked()">
+    {{btnText}}
+  </button>
+  <span class="button-undercover menu-span">Menu options</span>
 
-<div class="main-body-div centered-at-90-percent">
+  <div class="centered-at-90-percent" *ngIf="isCollapsed">
+    <button class="button-undercover button-menu--w25percent" *ngIf="!isUserLoggedIn"><a routerLink="/login">Login</a></button>
+    <button class="button-undercover button-menu--w25percent" *ngIf="isUserLoggedIn"><a routerLink="/view-statistics">View purchases</a></button>
+    <button class="button-undercover button-menu--w25percent" *ngIf="isUserLoggedIn"><a routerLink="/add-purchase">Log a new purchase</a></button>
+    <button class="button-undercover button-menu--w25percent" *ngIf="isUserLoggedIn"><a routerLink="/logout">Logout</a></button>
+  </div>
+</nav>
+
+<div class="main-body-div centered-at-90-percent top-bottom-margins-35">
   <router-outlet></router-outlet>
 </div>

@@ -56,5 +56,7 @@ export class UserServiceService {
   logout() {
     console.log("User logged out.");
     this.loggedInUser = null;
+    this.subscriber.next(null);
+    this.router.navigate(['/login']);
   }
 }
