@@ -1,16 +1,66 @@
-<div class="top-bottom-margins-35">
-    V3.0 - pricing card (but without totals)
-</div>
-<app-pricing-card></app-pricing-card>
-    
+<p>
+    <button type="button" class="btn btn-outline-primary" (click)="isCollapsedV4 = !isCollapsedV4" 
+    [attr.aria-expanded]="isCollapsedV4"
+        aria-controls="collapseV4">
+        Toggle V4
+    </button>
+</p>
+<div id="collapseV4" [ngbCollapse]="!isCollapsedV4">
 
-<div class="top-bottom-margins-35">
-    V2.0 - table (with totals) and service onInit
+    <div class="top15-bottom30-margins">
+        V4.0 - line chart with ng-chart
+    </div>
+    <app-line-chart></app-line-chart>
 </div>
-<app-purchased-item-table></app-purchased-item-table>
 
 
-<div class="top-bottom-margins-35">
-    V1.0 text and button + service
+
+
+
+<p>
+    <button type="button" class="btn btn-outline-primary" (click)="isCollapsedV3 = !isCollapsedV3" 
+    [attr.aria-expanded]="isCollapsedV3"
+        aria-controls="collapseV3">
+        Toggle V3
+    </button>
+</p>
+<div id="collapseV3" [ngbCollapse]="!isCollapsedV3">
+    <div class="top15-bottom30-margins">
+        V3.0 - pricing card (but without totals)
+    </div>
+    <app-pricing-card></app-pricing-card>
 </div>
-<app-purchased-item-list></app-purchased-item-list>
+
+
+
+
+<p>
+    <button type="button" class="btn btn-outline-primary" (click)="isCollapsedV2 = !isCollapsedV2" 
+    [attr.aria-expanded]="isCollapsedV2"
+        aria-controls="collapseV2">
+        Toggle V2
+    </button>
+</p>
+<div id="collapseV2" [ngbCollapse]="!isCollapsedV2">
+    <div class="top15-bottom30-margins">
+        V2.0 - table (with totals) and service onInit
+    </div>
+    <app-purchased-item-table></app-purchased-item-table>
+</div>
+
+
+
+
+<p>
+    <button type="button" class="btn btn-outline-primary" (click)="isCollapsedV1 = !isCollapsedV1" 
+    [attr.aria-expanded]="isCollapsedV1"
+        aria-controls="collapseV1">
+        Toggle V1
+    </button>
+</p>
+<div id="collapseV1" [ngbCollapse]="!isCollapsedV1">
+    <div class="top15-bottom30-margins">
+        V1.0 text and button + service
+    </div>
+    <app-purchased-item-list></app-purchased-item-list>
+</div>

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule, MatTableModule } from '@angular/material';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -25,6 +26,7 @@ import { LogoutPageComponent } from './pages/logout-page/logout-page.component';
 import { NotLoggedInMenuGuard } from './services/guards/not-logged-in-menu.guard';
 import { MustBeLoggedInPageComponent } from './pages/must-be-logged-in-page/must-be-logged-in-page.component';
 import { MustNotBeLoggedInPageComponent } from './pages/must-not-be-logged-in-page/must-not-be-logged-in-page.component';
+import { LineChartComponent } from './components/line-chart/line-chart.component';
 
 const appRoutes: Routes = [
   {
@@ -84,10 +86,11 @@ const appRoutes: Routes = [
     UserComponent,
     LogoutPageComponent,
     MustBeLoggedInPageComponent,
-    MustNotBeLoggedInPageComponent
+    MustNotBeLoggedInPageComponent,
+    LineChartComponent
   ],
   imports: [
-    NgbModule,
+    ChartsModule,
     MatPaginatorModule,
     MatTableModule,
     HttpClientModule,
@@ -96,7 +99,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
-    )
+    ),
+    NgbModule
   ],
   providers: [
     PurchasedItemsServiceService
