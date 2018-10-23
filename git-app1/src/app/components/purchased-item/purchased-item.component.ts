@@ -8,7 +8,7 @@ import{Component, OnInit, Input}from '@angular/core';
 export class PurchasedItemComponent implements OnInit {
 
   @Input() name : string = 'Beer';
-  @Input() price : string = '3.5';
+  @Input() price : number = 3.5;
   @Input() currency : string = 'RON';
   @Input() date : string = '28.09.2018';
 
