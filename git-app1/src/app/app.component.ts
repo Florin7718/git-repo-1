@@ -15,6 +15,9 @@ export class AppComponent {
   private btnTextUncollapsed: string = "[ + ]";
   private btnText: string = "[ - ]";
 
+  private type: string;
+  private message: string;
+
   constructor(private userService: UserServiceService) { }
 
   ngOnInit() {
@@ -32,4 +35,5 @@ export class AppComponent {
       this.btnText = this.btnTextUncollapsed;
     };
   }
+
 }

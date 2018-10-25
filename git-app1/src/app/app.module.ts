@@ -27,6 +27,8 @@ import { NotLoggedInMenuGuard } from './services/guards/not-logged-in-menu.guard
 import { MustBeLoggedInPageComponent } from './pages/must-be-logged-in-page/must-be-logged-in-page.component';
 import { MustNotBeLoggedInPageComponent } from './pages/must-not-be-logged-in-page/must-not-be-logged-in-page.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
+import { AppMessagePanelComponent } from './components/app-message-panel/app-message-panel.component';
+import { AppMessageBusService } from './services/app-message-bus.service';
 
 const appRoutes: Routes = [
   {
@@ -87,7 +89,8 @@ const appRoutes: Routes = [
     LogoutPageComponent,
     MustBeLoggedInPageComponent,
     MustNotBeLoggedInPageComponent,
-    LineChartComponent
+    LineChartComponent,
+    AppMessagePanelComponent
   ],
   imports: [
     ChartsModule,
@@ -103,7 +106,8 @@ const appRoutes: Routes = [
     NgbModule
   ],
   providers: [
-    PurchasedItemsServiceService
+    PurchasedItemsServiceService,
+    AppMessageBusService
   ],
   bootstrap: [AppComponent]
 })

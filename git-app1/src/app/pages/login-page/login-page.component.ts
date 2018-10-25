@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserServiceService } from '../../services/user-service.service';
 import { UserComponent } from '../../components/user/user.component';
+import { AppMessageBusService } from '../../services/app-message-bus.service';
 
 @Component({
   selector: 'app-login-page',
@@ -15,7 +16,7 @@ export class LoginPageComponent implements OnInit {
 
   private isRegisterMode: boolean = false;
 
-  constructor(private userService: UserServiceService) { }
+  constructor(private userService: UserServiceService, private msgBusService: AppMessageBusService) { }
 
   ngOnInit() {
   }
@@ -31,6 +32,10 @@ export class LoginPageComponent implements OnInit {
       .subscribe(
         () => {
           console.log("success login");
+          this.msgBusService.createAlerts({
+            type: "success",
+            message: "The login was successful."
+          });
           // routing here is subjected to delay. routing in the producer
         },
         () => {
@@ -67,7 +72,7 @@ export class LoginPageComponent implements OnInit {
     this.isRegisterMode = false;
   }
 
-  cancelRegister(){
+  cancelRegister() {
     this.isRegisterMode = false;
   }
 
