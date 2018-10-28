@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PurchasedItemComponent } from './../purchased-item/purchased-item.component';
 import { PurchasedItemsServiceService } from './../../services/purchased-items-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pricing-card',
@@ -9,15 +10,15 @@ import { PurchasedItemsServiceService } from './../../services/purchased-items-s
 })
 export class PricingCardComponent implements OnInit {
 
-  purchasedItems : PurchasedItemComponent[] = [];
+  purchasedItems: PurchasedItemComponent[] = [];
 
-  constructor(private itemService : PurchasedItemsServiceService) { }
+  constructor(private itemService: PurchasedItemsServiceService, private router: Router) { }
 
   ngOnInit() {
     this.getItemsFromDB();
   }
 
-  getItemsFromDB(){
+  getItemsFromDB() {
     this.itemService.getItemsFromDB().subscribe(
       (res) => {
         this.purchasedItems = res;
@@ -31,6 +32,11 @@ export class PricingCardComponent implements OnInit {
         console.log("complete view-purchases");
       }
     );
+  }
+
+  public addByCloning(item: PurchasedItemComponent) {
+    this.itemService.setPurchaseToBeCloned(item);
+    this.router.navigate(['/add-purchase']);
   }
 
 }

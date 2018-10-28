@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class PurchasedItemsServiceService {
 
+  private purchaseToBeCloned: PurchasedItemComponent;
+
   constructor(private httpClient: HttpClient) { }
 
   getItemsFromDB() {
@@ -29,6 +31,14 @@ export class PurchasedItemsServiceService {
 
     var obs: Observable<void> = this.httpClient.post<void>("/api/add-purchase", rq);
     return obs;
+  }
+
+  public setPurchaseToBeCloned(item: PurchasedItemComponent) {
+    this.purchaseToBeCloned = item;
+  }
+
+  public getPurchaseToBeCloned() {
+    return this.purchaseToBeCloned;
   }
 
 }

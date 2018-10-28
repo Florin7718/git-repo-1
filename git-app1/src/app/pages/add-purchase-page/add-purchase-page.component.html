@@ -1,8 +1,8 @@
 <div *ngIf="!isPurchaseComplete">
-    <div><label>Item name : </label><input name="name" value="{{name}}" [(ngModel)]="name"></div>
-    <div><label>Item price : </label><input name="price" value="{{price}}" [(ngModel)]="price"></div>
-    <div><label>Item currency : </label><input name="currency" value="{{currency}}" [(ngModel)]="currency"></div>
-    <div><label>Item date : </label><input name="date" value="{{date}}" [(ngModel)]="date"></div>
+    <div><label>Item name : </label><input name="name" value="{{purchaseToBeCloned.name}}" [(ngModel)]="purchaseToBeCloned.name"></div>
+    <div><label>Item price : </label><input name="price" value="{{purchaseToBeCloned.price}}" [(ngModel)]="purchaseToBeCloned.price"></div>
+    <div><label>Item currency : </label><input name="currency" value="{{purchaseToBeCloned.currency}}" [(ngModel)]="purchaseToBeCloned.currency"></div>
+    <div><label>Item date : </label><input name="date" value="{{purchaseToBeCloned.date}}" [(ngModel)]="purchaseToBeCloned.date"></div>
 </div>
 
 <div class="top-bottom-margins-35" *ngIf="isPurchaseComplete">
