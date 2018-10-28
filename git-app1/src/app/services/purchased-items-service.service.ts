@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class PurchasedItemsServiceService {
 
-  private purchaseToBeCloned: PurchasedItemComponent;
+  private purchaseToBeCloned: PurchasedItemComponent = null;
 
   constructor(private httpClient: HttpClient) { }
 

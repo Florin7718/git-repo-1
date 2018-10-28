@@ -1,25 +1,44 @@
-<div *ngIf="!isPurchaseComplete">
-    <div><label>Item name : </label><input name="name" value="{{purchaseToBeCloned.name}}" [(ngModel)]="purchaseToBeCloned.name"></div>
-    <div><label>Item price : </label><input name="price" value="{{purchaseToBeCloned.price}}" [(ngModel)]="purchaseToBeCloned.price"></div>
-    <div><label>Item currency : </label><input name="currency" value="{{purchaseToBeCloned.currency}}" [(ngModel)]="purchaseToBeCloned.currency"></div>
-    <div><label>Item date : </label><input name="date" value="{{purchaseToBeCloned.date}}" [(ngModel)]="purchaseToBeCloned.date"></div>
+<p>
+    <button type="button" class="btn btn-outline-primary top15-bottom30-margins" (click)="isCollapsedAddManually = !isCollapsedAddManually" 
+    [attr.aria-expanded]="isCollapsedAddManually"
+        aria-controls="collapseAddManually">
+        Toggle add purchase section
+    </button>
+</p>
+<div class="top15-bottom30-margins" id="collapseAddManually" [ngbCollapse]="isCollapsedAddManually">
+    <div *ngIf="!isPurchaseComplete">
+        <div><label>Item name : </label><input name="name" value="{{purchaseToBeCloned.name}}" [(ngModel)]="purchaseToBeCloned.name"></div>
+        <div><label>Item price : </label><input name="price" value="{{purchaseToBeCloned.price}}" [(ngModel)]="purchaseToBeCloned.price"></div>
+        <div><label>Item currency : </label><input name="currency" value="{{purchaseToBeCloned.currency}}" [(ngModel)]="purchaseToBeCloned.currency"></div>
+        <div><label>Item date : </label><input name="date" value="{{purchaseToBeCloned.date}}" [(ngModel)]="purchaseToBeCloned.date"></div>
+    </div>
+
+    <div class="top15-bottom30-margins" *ngIf="isPurchaseComplete">
+        <div *ngIf="isSuccess" class="success-message">{{successMessage}}</div>
+        <div *ngIf="!isSuccess" class="error-message">{{errorMessage}}</div>
+    </div>
+
+    <button *ngIf="!isPurchaseComplete" (click)="addPurchase()">Add purchase</button>
+
+    <button *ngIf="isPurchaseComplete" (click)="addNewPurchase()">Add new purchase</button>
 </div>
 
-<div class="top-bottom-margins-35" *ngIf="isPurchaseComplete">
-    <div *ngIf="isSuccess" class="success-message">{{successMessage}}</div>
-    <div *ngIf="!isSuccess" class="error-message">{{errorMessage}}</div>
+
+<p>
+    <button type="button" class="btn btn-outline-primary" (click)="isCollapsedImport = !isCollapsedImport" 
+    [attr.aria-expanded]="isCollapsedImport"
+        aria-controls="collapseImport">
+        Toggle import purchases section
+    </button>
+</p>
+<div class="top15-bottom30-margins" id="collapseImport" [ngbCollapse]="!isCollapsedImport">
+    <div class="top15-bottom30-margins">
+            <textarea readonly="true">{{textAreaSampleInput}}</textarea>
+    </div>
+
+    <div *ngIf="!isPurchaseComplete" class="top15-bottom30-margins">
+        <textarea [(ngModel)]="importFromTextArea"></textarea>
+    </div>
+
+    <button *ngIf="!isPurchaseComplete" (click)="doImportFromTextArea()">Import and add purchases</button>
 </div>
-
-<button *ngIf="!isPurchaseComplete" (click)="addPurchase()">Add purchase</button>
-
-<button *ngIf="isPurchaseComplete" (click)="addNewPurchase()">Add new purchase</button>
-
-<div class="top-bottom-margins-35">
-        <textarea readonly="true">{{textAreaSampleInput}}</textarea>
-</div>
-
-<div *ngIf="!isPurchaseComplete" class="top-bottom-margins-35">
-    <textarea [(ngModel)]="importFromTextArea"></textarea>
-</div>
-
-<button *ngIf="!isPurchaseComplete" (click)="doImportFromTextArea()">Import and add purchases</button>

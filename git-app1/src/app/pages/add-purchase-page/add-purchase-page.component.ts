@@ -17,19 +17,21 @@ export class AddPurchasePageComponent implements OnInit {
   private successMessage: string = "Purchase added.";
   private errorMessage: string = "Error adding purchase.";
 
-  private emptyPurchase: PurchasedItemComponent = {
-    name: '',
-    price: 0,
-    currency: '',
-    date: ''
-  };
+  private emptyPurchase: PurchasedItemComponent = new PurchasedItemComponent();
 
-  private purchaseToBeCloned: PurchasedItemComponent = this.emptyPurchase;
+  @Input() purchaseToBeCloned: PurchasedItemComponent = this.emptyPurchase;
 
   constructor(private itemsService: PurchasedItemsServiceService) { }
 
   ngOnInit() {
+    this.emptyPurchase.name = '';
+    this.emptyPurchase.price = 0;
+    this.emptyPurchase.currency = '';
+    this.emptyPurchase.date = '';
     this.purchaseToBeCloned = this.itemsService.getPurchaseToBeCloned();
+    if (this.purchaseToBeCloned == null) {
+      this.purchaseToBeCloned = this.emptyPurchase;
+    }
   }
 
   addPurchase() {
