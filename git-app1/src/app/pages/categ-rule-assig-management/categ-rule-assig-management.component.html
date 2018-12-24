@@ -1,0 +1,9 @@
+<div *ngFor="let c of categories">
+<ul>
+  <label>{{c}}</label>
+  <li *ngFor="let r of rules">
+    <label>{{r}}</label><input type="checkbox">
+  </li>
+</ul>
+</div>
+<button (click)="saveAssignments()">Save assignments</button>

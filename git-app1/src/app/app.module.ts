@@ -29,6 +29,9 @@ import { MustNotBeLoggedInPageComponent } from './pages/must-not-be-logged-in-pa
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import { AppMessagePanelComponent } from './components/app-message-panel/app-message-panel.component';
 import { AppMessageBusService } from './services/app-message-bus.service';
+import { RuleCreationComponent } from './pages/rule-creation/rule-creation.component';
+import { CategCreationComponent } from './pages/categ-creation/categ-creation.component';
+import { CategRuleAssigManagementComponent } from './pages/categ-rule-assig-management/categ-rule-assig-management.component';
 
 const appRoutes: Routes = [
   {
@@ -62,6 +65,18 @@ const appRoutes: Routes = [
     canActivate: [LoggedInMenuGuardGuard]
   },
   {
+    component: RuleCreationComponent,
+    path: 'r'
+  },
+  {
+    component: CategCreationComponent,
+    path: 'c'
+  },
+  {
+    component: CategRuleAssigManagementComponent,
+    path: 'cram'
+  },
+  {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
@@ -90,7 +105,10 @@ const appRoutes: Routes = [
     MustBeLoggedInPageComponent,
     MustNotBeLoggedInPageComponent,
     LineChartComponent,
-    AppMessagePanelComponent
+    AppMessagePanelComponent,
+    RuleCreationComponent,
+    CategCreationComponent,
+    CategRuleAssigManagementComponent
   ],
   imports: [
     ChartsModule,
